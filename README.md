@@ -13,4 +13,4 @@ This scheme describes the variables that should make up the state space followin
 
 ![](https://github.com/UoA-CARES/manipulator_learning_testbed/blob/main/Images/general%20math-14.jpg)
 
-the code to generate the space state following this schema can be found [here] (https://github.com/UoA-CARES/manipulator_learning_testbed/blob/main/Code/state_space_generator.py)
+the code to generate the space state following this schema can be found [here](https://github.com/UoA-CARES/manipulator_learning_testbed/blob/main/Code/state_space_generator.py)
