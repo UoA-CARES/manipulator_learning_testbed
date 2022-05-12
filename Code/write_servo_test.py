@@ -23,7 +23,6 @@ import os
 if os.name == 'nt':
     import msvcrt
 
-
     def getch():
         return msvcrt.getch().decode()
 else:
@@ -31,7 +30,6 @@ else:
 
     fd = sys.stdin.fileno()
     old_settings = termios.tcgetattr(fd)
-
 
     def getch():
         try:
@@ -68,8 +66,8 @@ TORQUE_ENABLE  = 1  # Value for enabling the torque
 TORQUE_DISABLE = 0  # Value for disabling the torque
 
 # Speed values
-DXL_MAX_VELOCITY_VALUE = 300   # Max possible value=2047
-DXL_LIM_TORQUE_VALUE   = 120   # Max possible value=1023
+DXL_MAX_VELOCITY_VALUE = 80   # Max possible value=2047
+DXL_LIM_TORQUE_VALUE   = 180   # Max possible value=1023
 
 
 # GOAL VALUES FOR EACH MOTOR
@@ -213,10 +211,9 @@ else:
 
 # Initialize GroupSyncWrite instance ---> GroupSyncWrite(port, ph, start_address, data_length)
 
-data_length = 2  # data lengt goal position  and present position
+data_length = 2  # data length goal position  and present position
 
 groupSyncWrite = GroupSyncWrite(portHandler, packetHandler, ADDR_GOAL_POSITION, data_length)
-groupSyncRead = GroupSyncRead(portHandler, packetHandler, ADDR_GOAL_POSITION, data_length)
 
 # syncwrite test start
 
@@ -236,6 +233,7 @@ while 1:
 
     # --- Add the goal position value to the Syn parameter, motor ID1 ----
     dxl_addparam_result = groupSyncWrite.addParam(DXL_ID_1, param_goal_position_1)
+
     if dxl_addparam_result != True:
         print("[ID:%03d] groupSyncWrite addparam failed" % DXL_ID_1)
         quit()

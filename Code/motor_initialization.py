@@ -23,6 +23,7 @@ Description:
                 6) Initialize GroupSyncWrite instance
 """
 
+
 import os
 from dynamixel_sdk import *
 
@@ -43,7 +44,8 @@ else:
             termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
         return ch
 
-# See the eManual for these parameters
+#  ------------------Initial Parameters---------------------------
+# Address of each parameter. See the eManual for these values
 ADDR_TORQUE_ENABLE    = 24
 ADDR_GOAL_POSITION    = 30
 ADDR_MOVING_SPEED     = 32
@@ -66,7 +68,7 @@ DEVICENAME = '/dev/ttyUSB0'
 TORQUE_ENABLE          = 1    # Value for enabling the torque
 TORQUE_DISABLE         = 0    # Value for disabling the torque
 DXL_MAX_VELOCITY_VALUE = 80   # Value for limited the speed. Max possible value=2047 meaning max speed
-DXL_MAX_TORQUE_VALUE   = 120  # It is the torque value of maximum output. 0 to 1,023 can be used
+DXL_MAX_TORQUE_VALUE   = 150  # It is the torque value of maximum output. 0 to 1,023 can be used
 
 # Initialize PortHandler instance
 # Set the port path
@@ -106,7 +108,6 @@ elif dxl_error != 0:
 else:
     print("Dynamixel#%d has been successfully limited the TORQUE" % DXL_ID_2)
 
-
 dxl_comm_result, dxl_error = packetHandler.write2ByteTxRx(portHandler, DXL_ID_3, ADDR_TORQUE_LIMIT, DXL_MAX_TORQUE_VALUE)
 if dxl_comm_result != COMM_SUCCESS:
     print("%s" % packetHandler.getTxRxResult(dxl_comm_result))
@@ -114,7 +115,6 @@ elif dxl_error != 0:
     print("%s" % packetHandler.getRxPacketError(dxl_error))
 else:
     print("Dynamixel#%d has been successfully limited the TORQUE" % DXL_ID_3)
-
 
 dxl_comm_result, dxl_error = packetHandler.write2ByteTxRx(portHandler, DXL_ID_4, ADDR_TORQUE_LIMIT, DXL_MAX_TORQUE_VALUE)
 if dxl_comm_result != COMM_SUCCESS:
@@ -165,6 +165,7 @@ else:
     print("Dynamixel#%d has been successfully enable torque" % DXL_ID_4)
     print("-------------------------------------------------------------")
 # -----------------------------------------------------------------
+
 
 # ---------------Enable Moving Speed Limited for each motor---------------------------------------------------------
 
