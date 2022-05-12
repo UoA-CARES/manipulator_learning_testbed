@@ -140,7 +140,7 @@ class RL_ENV:
         return reward_d, done
 
     def render(self):
-        t1 = Thread(target=self.run_video_d)  # todo not sure if this is the optimal way
+        t1 = Thread(target=self.run_video_d)  #
         t1.start()
 
 
