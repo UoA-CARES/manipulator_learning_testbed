@@ -7,12 +7,15 @@ The following image illustrates the manipulator configuration, where you can cle
 ![](https://github.com/UoA-CARES/manipulator_learning_testbed/blob/main/Images/configuration.jpg)
 
 
-## State Space generation and basic math
+## Materials  
+In order to have an exact replication of the robot used in this proposal, you will need the following materials, we also provide the STL files for 3d printer:
 
-This scheme describes the variables that should make up the state space following Henry's previous explanation. As you can see, the diagram has a reference frame from which all measurements start. In addition, you will have the frame of the cube and the frame of the target point. The position of each joint and the extreme effector are described in the equations (w.r.t. the reference frame too). 
+|Material      | Brand| Quantity|
+|--------------|------|---------|
+| ServoMotors  | Dynamixel XL-320| 4  |
+| WebCam  | Standard| 1  |
+| STL Files  |   | [link](https://github.com/dvalenciar/td3_ddpg_translation_rotation/tree/main/STL_FILES_FOR_3D_PRINTER)   |
+| USD2 PHB|Dynamixel | 1 |
+| U2D2 INT|Dynamixel | 1 |
 
-![](https://github.com/UoA-CARES/manipulator_learning_testbed/blob/main/Images/general%20math-14.jpg)
 
-
-## Run the env
-The code to generate the space state, actions and reward following this schema can be found [here](https://github.com/UoA-CARES/manipulator_learning_testbed/blob/main/Code/run_env.py)
